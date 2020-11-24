@@ -18,8 +18,6 @@
 
     <!-- 暴露服务 -->
     <dubbo:service interface="cn.ykf.service.UserService" ref="userService"></dubbo:service>
-    <dubbo:service interface="cn.ykf.service.TestService" ref="testService"></dubbo:service>
 
     <bean id="userService" class="cn.ykf.service.impl.UserServiceImpl"></bean>
-    <bean id="testService" class="cn.ykf.service.impl.TestServiceImpl"></bean>
 </beans>
