@@ -1,5 +1,9 @@
 package cn.ykf.service;
 
+import cn.ykf.model.UserAddress;
+
+import java.util.List;
+
 /**
  * 订单服务
  *
@@ -12,6 +16,7 @@ public interface OrderService {
      * 初始化用户订单
      *
      * @param userId 用户id
+     * @return 用户地址集合
      */
-    void initOrder(String userId);
+    List<UserAddress> initOrder(String userId);
 }

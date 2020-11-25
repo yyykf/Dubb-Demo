@@ -25,10 +25,9 @@ public class OrderServiceImpl implements OrderService {
     private UserService userService;
 
     @Override
-    public void initOrder(String userId) {
+    public List<UserAddress> initOrder(String userId) {
         LOGGER.info("用户id：{}", userId);
 
-        final List<UserAddress> addressList = userService.getUserAddressList(userId);
-        addressList.forEach(System.out::println);
+        return userService.getUserAddressList(userId);
     }
 }
