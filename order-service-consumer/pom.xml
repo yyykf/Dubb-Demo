@@ -11,6 +11,9 @@
     <description>订单服务-消费者</description>
 
     <artifactId>order-service-consumer</artifactId>
+    <properties>
+        <dubbo.version>2.7.3</dubbo.version>
+    </properties>
 
     <dependencies>
         <!-- 引入公共模块 -->
@@ -23,33 +26,14 @@
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
-            <version>2.7.3</version>
+            <version>${dubbo.version}</version>
         </dependency>
-        <!-- Zookeeper操作客户端 -->
+        <!-- Zookeeper 依赖 -->
         <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-recipes</artifactId>
-            <version>4.0.1</version>
-            <!-- 排除zookeeper引用 -->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
-                    <artifactId>zookeeper</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- 单独引入Zookeeper，处理不兼容 -->
-        <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>3.4.9</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
-            <scope>compile</scope>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-dependencies-zookeeper</artifactId>
+            <version>${dubbo.version}</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 
