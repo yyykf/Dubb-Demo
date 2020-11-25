@@ -1,0 +1,9 @@
+server:
+  port: 9999
+dubbo:
+  # 应用名称
+  application:
+    name: boot-order-service-consumer
+  # 注册中心
+  registry:
+    address: zookeeper://127.0.0.1:2181
