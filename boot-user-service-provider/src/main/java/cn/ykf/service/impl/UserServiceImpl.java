@@ -11,14 +11,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 用户服务实现类
+ * 用户服务实现类，设置了本地存根，本地存根的初始化由消费端来完成
  *
  * @author YuKaiFan<yukf @ pvc123.com>
  * @date 2020-11-22
  */
 @DubboService(timeout = 1000, methods = {
         @Method(name = "getUserAddressList", timeout = 2000)
-}, version = "1.0.0")
+}, version = "1.0.0", stub = "cn.ykf.service.stub.UserServiceStub")
 public class UserServiceImpl implements UserService {
 
     private final AtomicInteger counter = new AtomicInteger();
