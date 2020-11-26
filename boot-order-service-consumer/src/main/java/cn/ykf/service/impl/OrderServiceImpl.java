@@ -34,10 +34,12 @@ public class OrderServiceImpl implements OrderService {
      *   来得及返回就超时了，一旦重试的话可能就会有重复记录）。
      *  4.1 如果设置 retries=3，那么算上第一次调用的话最多可能调用4次。
      *  4.2 只有当所有重试完依旧不能调用时，才会抛出超时异常。而不是第一次调用超时抛异常--》重试--》超时抛异常--》...
+     * 5. 可以指定某个具体版本，比如先给一半消费者更新为新版本服务，等到没问题后，再全部更新为新版本，通过灰度发布进行平滑过渡...
+     *  5.1 如果指定为 *，那么就在各版本中随机调用
      */
     @DubboReference(check = false, methods = {
             @Method(name = "getUserAddressList", timeout = 2000, retries = 3)
-    }, timeout = 1000)
+    }, timeout = 1000, version = "*")
     private UserService userService;
 
     @Override
