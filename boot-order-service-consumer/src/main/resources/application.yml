@@ -9,4 +9,7 @@ dubbo:
     address: zookeeper://127.0.0.1:2181
   # 消费者的统一配置
   consumer:
+    # 默认值 true
     check: false
+    # 默认值 1000，单位ms
+    timeout: 1000
