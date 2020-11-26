@@ -8,6 +8,7 @@ import org.apache.dubbo.config.annotation.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 用户服务实现类
@@ -20,8 +21,11 @@ import java.util.concurrent.TimeUnit;
 })
 public class UserServiceImpl implements UserService {
 
+    private final AtomicInteger counter = new AtomicInteger();
+
     @Override
     public List<UserAddress> getUserAddressList(String userId) {
+        System.out.println("第" + counter.incrementAndGet() + "次调用...");
         UserAddress address1 = new UserAddress("1", "北京市昌平区宏福科技园综合楼3层", "1", "李老师", "010-56253825", true);
         UserAddress address2 = new UserAddress("2", "深圳市宝安区西部硅谷大厦B座3层（深圳分校）", "1", "王老师", "010-56253825", false);
 
