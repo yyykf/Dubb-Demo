@@ -22,7 +22,8 @@ public class OrderServiceImpl implements OrderService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceImpl.class);
 
-    @DubboReference
+    /** 启动时不检查，优先级比 dubbo.consumer.check 高 */
+    @DubboReference(check = false)
     private UserService userService;
 
     @Override
